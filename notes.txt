@@ -1,0 +1,15 @@
+#Started by entering the environment: source venv/bin/activate
+
+# Installed all dependencies:pip install fastapi uvicorn sqlalchemy alembic psycopg2-binary asyncpg python-multipart python-jose passlib[bcrypt] python-dotenv
+
+# Check for the postgres version: psql --version
+# Start service : sudo service postgresql start 
+# Create your database : sudo -u postgres psql
+CREATE DATABASE disaster_db;
+CREATE USER disaster_user WITH PASSWORD 'strongpassword';
+ALTER ROLE disaster_user SET client_encoding TO 'utf8';
+ALTER ROLE disaster_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE disaster_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE disaster_db TO disaster_user;
+\q
+# Configure database connection
